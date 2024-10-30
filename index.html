@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATENEA - Descubriendo el camino hacia el aprendizaje</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(to right, #1e3a8a, #00bfff);
+            color: white;
+            border-bottom: 4px solid #ffdd00;
+        }
+        header h1 {
+            font-size: 4rem;
+            color: #ffdd00;
+        }
+        header p {
+            font-size: 1.8rem;
+        }
+        .register {
+            text-align: center;
+            margin: 30px;
+        }
+        .register a {
+            padding: 12px 30px;
+            background-color: #ffdd00;
+            color: #1e3a8a;
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .carousel {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            overflow: hidden;
+            border-radius: 10px;
+            margin: 20px auto;
+        }
+        .carousel img {
+            display: none;
+        }
+        .carousel img.active {
+            display: block;
+        }
+        .carousel .controls {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel .controls button {
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+        .carousel .controls button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+        }
+        .subjects {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 40px 0;
+        }
+        .subject {
+            background-color: #ffdd00;
+            border: 3px solid #1e3a8a;
+            border-radius: 10px;
+            width: 220px;
+            text-align: center;
+            margin: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        .subject:hover {
+            transform: scale(1.05);
+        }
+        .subject a {
+            text-decoration: none;
+            font-size: 1.3rem;
+            color: #1e3a8a;
+            font-weight: bold;
+        }
+        footer {
+            text-align: center;
+            padding: 25px;
+            background-color: #1e3a8a;
+            color: white;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ATENEA</h1>
+        <p>Descubriendo el camino hacia el aprendizaje</p>
+    </header>
+    <div class="register">
+        <a href="javascript:void(0)" onclick="document.getElementById('registerModal').style.display='block'">Regístrate</a>
+    </div>
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="document.getElementById('registerModal').style.display='none'">&times;</span>
+            <h2>Registro de Usuario</h2>
+            <form>
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br><br>
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Registrar</button>
+            </form>
+        </div>
+    </div>
+    <div class="carousel">
+        <img src="https://img.freepik.com/vector-premium/educacion-aprendizaje-libro-abierto-cap-graduacion-e-ideas_432571-201.jpg" alt="Imagen 1" class="active">
+        <img src="https://img.freepik.com/fotos-premium/arte-vectorial-sobre-estudio-educacion-escuela_975572-3916.jpg" alt="Imagen 2">
+        <img src="https://img.freepik.com/vector-gratis/gente-pequena-enfocada-leyendo-libros_74855-5836.jpg?size=626&ext=jpg&ga=GA1.1.967060102.1729036800&semt=ais_hybrid" alt="Imagen 3">
+        <div class="controls">
+            <button onclick="changeSlide(-1)">&#10094;</button>
+            <button onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </div>
+    <div class="subjects">
+        <div class="subject">
+            <a href="matematicas.html">Matemáticas</a>
+        </div>
+        <div class="subject">
+            <a href="ingles.html">Inglés</a>
+        </div>
+        <div class="subject">
+            <a href="espanol.html">Español</a>
+        </div>
+        <div class="subject">
+            <a href="quimica.html">Química</a>
+        </div>
+        <div class="subject">
+            <a href="fisica.html">Física</a>
+        </div>
+        <div class="subject">
+            <a href="programacion.html">Programación</a>
+        </div>
+        <div class="subject">
+            <a href="ciencias_sociales.html">Ciencias Sociales</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 ATENEA - Todos los derechos reservados</p>
+    </footer>
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel img');
+
+        function changeSlide(direction) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (currentSlide + direction + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+        }
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('registerModal')) {
+                document.getElementById('registerModal').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
+
+   
+
+
+
